@@ -150,7 +150,7 @@ GigaLearnBot.exe --send-metrics
 GigaLearnBot.exe --no-add-rewards
 ```
 
-See the [Wiki](WIKI.md) for a full breakdown of all flags, config options, rewards, and more.
+See the [Wiki](https://github.com/ramgd1/GigaLearnCPP/wiki) for a full breakdown of all flags, config options, rewards, and more.
 
 ---
 
