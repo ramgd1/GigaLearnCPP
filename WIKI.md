@@ -579,37 +579,4 @@ public:
 | `ORANGE_GOAL_BACK` | Orange goal position |
 | `BLUE_GOAL_BACK` | Blue goal position |
 
----
 
-## Writing Custom Obs Builders
-
-Extend `ObsBuilder` and implement `BuildObs`:
-
-```cpp
-#include <RLGymCPP/ObsBuilders/ObsBuilder.h>
-
-class MyObs : public RLGC::ObsBuilder {
-public:
-    virtual RLGC::FList BuildObs(const Player& player, const GameState& state) override {
-        FList obs = {};
-
-        bool inv = (player.team == Team::ORANGE); // invert for orange
-
-        // Add ball data
-        obs += state.ball.pos * (1.f / 5000.f);
-        obs += state.ball.vel * (1.f / 2300.f);
-
-        // Add player data
-        obs += player.pos * (1.f / 5000.f);
-        obs += player.vel * (1.f / 2300.f);
-        obs += (float)player.boost / 100.f;
-        obs += (float)player.isOnGround;
-
-        return obs;
-    }
-};
-```
-
-`FList` is a `std::vector<float>` with `+=` overloaded for `Vec`, `float`, etc.
-
-The obs size must be **consistent** across all calls — the network input size is fixed at startup. If you have variable player counts, use padding (see `AdvancedObsPadded` for reference).
