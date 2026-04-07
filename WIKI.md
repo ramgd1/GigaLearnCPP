@@ -108,7 +108,7 @@ All flags are parsed in `main()` from `argv`. None are required — all have def
 GigaLearnBot.exe --cpu --no-load --num-games 256
 
 # GPU with metrics
-GigaLearnBot.exe --gpu --send-metrics --checkpoint D:\checkpoints\run1
+GigaLearnBot.exe --gpu --send-metrics 
 
 # Transfer learn from a saved checkpoint
 GigaLearnBot.exe --tl checkpoints\685272918 --gpu
@@ -176,8 +176,8 @@ Nested under `cfg.ppo` in `LearnerConfig`. Defined in `GigaLearnCPP/src/public/G
 ### Recommended settings from ExampleMain.cpp
 
 ```cpp
-cfg.tickSkip = 6;
-cfg.actionDelay = 5;  // tickSkip - 1
+cfg.tickSkip = 8;
+cfg.actionDelay = 7;  // tickSkip - 1
 cfg.numGames = 512;
 
 cfg.ppo.tsPerItr = 196608;   // ~6 * 32768
@@ -209,9 +209,9 @@ The neural network has three parts, each configured with a `PartialModelConfig`:
 
 **Layer sizes:**
 ```cpp
-cfg.ppo.sharedHead.layerSizes = { 1024, 1024, 1024, 1024, 512 };
-cfg.ppo.policy.layerSizes     = { 1024, 1024, 1024, 1024, 512 };
-cfg.ppo.critic.layerSizes     = { 1024, 1024, 1024, 1024, 512 };
+cfg.ppo.sharedHead.layerSizes = { 1024, 1024, 1024, 1024 };
+cfg.ppo.policy.layerSizes     = { 1024, 1024, 1024, 1024 };
+cfg.ppo.critic.layerSizes     = { 1024, 1024, 1024, 1024 };
 ```
 
 **Activation functions** (`ModelActivationType`):
