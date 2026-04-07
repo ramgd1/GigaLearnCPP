@@ -90,7 +90,7 @@ All flags are parsed in `main()` from `argv`. None are required — all have def
 | `--gpu` | bool | false | Force CUDA GPU. Fails if GPU unsupported by this LibTorch build. |
 | `--cpu` | bool | false | Force CPU inference and training. |
 | `--no-load` | bool | false | Start fresh — ignore any existing checkpoint in the checkpoint folder. |
-| `--checkpoint <path>` | string | `"checkpoints"` | Path to load/save checkpoints from. |
+| `--checkpoint <path>` | string | `"checkpoints"` | Path to load/save checkpoints from. (this is optional is will auto save to where it should if this arg is not added) |
 | `--num-games <n>` | int | 512 | Number of parallel game instances. More = more data per iteration but more RAM/CPU. |
 | `--render` | bool | false | Enable rendering. **Severely slows training** — only for demos/debugging. |
 | `--render-timescale <f>` | float | 8.0 | Speed multiplier for rendering. 1.0 = real time, 8.0 = 8x speed. |
