@@ -158,5 +158,4 @@ See the [Wiki](WIKI.md) for a full breakdown of all flags, config options, rewar
 
 - **Reconfigure CMake:** `Project → Configure Cache` in VS2022
 - **CMake broken:** Delete the `.vs` folder — VS2022 will regenerate everything
-- **RTX 50 / Blackwell GPUs:** The prebuilt LibTorch doesn't include `sm_120`. Use `--cpu` or build LibTorch from source with the correct `TORCH_CUDA_ARCH_LIST`.
 - **Checkpoints** are saved automatically under `checkpoints\` in the build folder every 1M timesteps (configurable).
